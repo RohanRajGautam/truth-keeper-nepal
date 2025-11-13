@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Cases from "./pages/Cases";
 import About from "./pages/About";
+import Information from "./pages/Information";
 import CaseDetail from "./pages/CaseDetail";
 import EntityProfile from "./pages/EntityProfile";
 import ReportAllegation from "./pages/ReportAllegation";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/entity-response/:id" element={<EntityResponse />} />
           <Route path="/moderation" element={<ModerationDashboard />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/information" element={<Information />} />
           <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
