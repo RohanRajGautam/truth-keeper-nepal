@@ -2,29 +2,26 @@ import { Calendar } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-
-interface TimelineItem {
-  id: string;
-  title: string;
-  date: string;
-  status: "verified" | "under-investigation" | "resolved";
-  severity: "high" | "medium" | "low";
-}
+import { Allegation } from "@/services/api";
 
 interface AllegationTimelineProps {
-  allegations: TimelineItem[];
+  allegations: Allegation[];
 }
 
-const statusConfig = {
-  "verified": { label: "Verified", className: "bg-destructive/10 text-destructive" },
-  "under-investigation": { label: "Under Investigation", className: "bg-warning/10 text-warning" },
-  "resolved": { label: "Resolved", className: "bg-success/10 text-success" }
+const getStatusConfig = (status: string) => {
+  const normalized = status.toLowerCase();
+  if (normalized.includes("verified")) return { label: "Verified", className: "bg-destructive/10 text-destructive" };
+  if (normalized.includes("investigation")) return { label: "Under Investigation", className: "bg-warning/10 text-warning" };
+  if (normalized.includes("resolved")) return { label: "Resolved", className: "bg-success/10 text-success" };
+  return { label: status, className: "bg-muted/10 text-muted-foreground" };
 };
 
-const severityConfig = {
-  "high": { label: "High Severity", className: "bg-destructive/10 text-destructive" },
-  "medium": { label: "Medium Severity", className: "bg-warning/10 text-warning" },
-  "low": { label: "Low Severity", className: "bg-muted/10 text-muted-foreground" }
+const getSeverityConfig = (severity: string) => {
+  const normalized = severity.toLowerCase();
+  if (normalized === "high") return { label: "High Severity", className: "bg-destructive/10 text-destructive" };
+  if (normalized === "medium") return { label: "Medium Severity", className: "bg-warning/10 text-warning" };
+  if (normalized === "low") return { label: "Low Severity", className: "bg-muted/10 text-muted-foreground" };
+  return { label: severity, className: "bg-muted/10 text-muted-foreground" };
 };
 
 export const AllegationTimeline = ({ allegations }: AllegationTimelineProps) => {
@@ -58,12 +55,14 @@ export const AllegationTimeline = ({ allegations }: AllegationTimelineProps) => 
                       {item.title}
                     </h4>
                     <div className="flex gap-2 flex-wrap">
-                      <Badge className={statusConfig[item.status].className}>
-                        {statusConfig[item.status].label}
+                      <Badge className={getStatusConfig(item.status).className}>
+                        {getStatusConfig(item.status).label}
                       </Badge>
-                      <Badge className={severityConfig[item.severity].className}>
-                        {severityConfig[item.severity].label}
-                      </Badge>
+                      {item.severity && (
+                        <Badge className={getSeverityConfig(item.severity).className}>
+                          {getSeverityConfig(item.severity).label}
+                        </Badge>
+                      )}
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground">
