@@ -21,6 +21,9 @@ export const Header = () => {
           <Link to="/" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             Home
           </Link>
+          <Link to="/entities" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+            Entities
+          </Link>
           <Link to="/cases" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             Cases
           </Link>

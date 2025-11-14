@@ -99,8 +99,13 @@ export const getEntityById = async (id: string): Promise<Entity> => {
 };
 
 export const getEntityVersions = async (id: string) => {
-  const response = await api.get(`/entities/${id}/versions`);
-  return response.data;
+  try {
+    const response = await api.get(`/entities/${id}/versions`);
+    return response.data;
+  } catch (error) {
+    console.warn(`Versions endpoint not available for entity ${id}`);
+    return { versions: [] };
+  }
 };
 
 export const getRelationships = async (params?: {
@@ -108,8 +113,13 @@ export const getRelationships = async (params?: {
   target_id?: string;
   type?: string;
 }) => {
-  const response = await api.get('/relationships', { params });
-  return response.data;
+  try {
+    const response = await api.get('/relationships', { params });
+    return response.data;
+  } catch (error) {
+    console.warn('Relationships endpoint not available');
+    return { relationships: [] };
+  }
 };
 
 export const searchEntities = async (query: string) => {
