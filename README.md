@@ -47,76 +47,64 @@ The platform uses a professional design system with semantic tokens:
 
 ---
 
-# Welcome to your Lovable project
+# Development Setup
 
-## Project info
+This project was initially prototyped using Lovable but is now fully decoupled and maintained independently by the Jawafdehi team.
 
-**URL**: https://lovable.dev/projects/fd2bdb14-ea08-45f5-97f8-092e1643b481
+## Prerequisites
 
-## How can I edit this code?
+- **Bun** - Fast JavaScript runtime and package manager - [install Bun](https://bun.sh/docs/installation)
 
-There are several ways of editing your application.
+## Local Development
 
-**Use Lovable**
+Clone this repository and set up your local environment:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fd2bdb14-ea08-45f5-97f8-092e1643b481) and start prompting.
+```sh
+# Step 1: Clone the repository
+git clone <YOUR_GIT_URL>
 
-Changes made via Lovable will be committed automatically to this repo.
+# Step 2: Navigate to the project directory
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install dependencies
+bun install
+
+# Step 4: Start the development server
+bun run dev
+```
+
+## Editing the Code
+
+You can edit this project using any method that works best for you:
 
 **Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Work locally with VS Code, WebStorm, or any IDE of your choice. All changes should be committed through standard Git workflows.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+**Edit files directly in GitHub**
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Navigate to the desired file(s)
+- Click the "Edit" button (pencil icon) at the top right
+- Make your changes and commit
 
 **Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Navigate to the main page of the repository
+- Click on the "Code" button (green button)
+- Select the "Codespaces" tab
+- Click on "New codespace" to launch a cloud development environment
 
 ## What technologies are used for this project?
 
 This project is built with:
 
+- Bun
 - Vite
 - TypeScript
 - React
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/fd2bdb14-ea08-45f5-97f8-092e1643b481) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+The project is deployed on Google Cloud Platform using Cloud Run. See the repository's GitHub Actions workflows for CI/CD configuration.
