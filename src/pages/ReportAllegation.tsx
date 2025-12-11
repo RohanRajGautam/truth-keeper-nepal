@@ -111,27 +111,6 @@ export default function ReportAllegation() {
                           </div>
                           <Download className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
                         </a>
-
-                        {/* HTML View */}
-                        <a
-                          href="/case-entry-template/case-entry-template.html"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between p-4 border rounded-lg hover:border-primary hover:bg-accent transition-colors group"
-                        >
-                          <div className="flex items-center gap-3">
-                            <div className="p-2 bg-purple-100 dark:bg-purple-950 rounded">
-                              <FileText className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-                            </div>
-                            <div>
-                              <p className="font-medium group-hover:text-primary transition-colors">
-                                {t("report.templateDownload.downloadHtml")}
-                              </p>
-                              <p className="text-xs text-muted-foreground">View in browser</p>
-                            </div>
-                          </div>
-                          <FileText className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                        </a>
                       </div>
                     </div>
 

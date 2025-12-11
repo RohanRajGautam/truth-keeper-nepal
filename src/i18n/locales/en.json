@@ -341,7 +341,6 @@
       "availableFormats": "Available Formats:",
       "downloadDocx": "Download Word Document (.docx)",
       "downloadMd": "Download Markdown (.md)",
-      "downloadHtml": "View HTML Version",
       "emailSubject": "Subject: Case Submission - [Brief Title]"
     }
   },
