@@ -2,8 +2,8 @@
  * Jawafdehi API (JDS) Client
  * 
  * API client for the Jawafdehi accountability platform.
- * Provides read-only access to published cases of alleged corruption,
- * misconduct, and broken promises by public entities in Nepal.
+ * Provides read-only access to published cases of alleged corruption
+ * and misconduct by public entities in Nepal.
  * 
  * Reference: Jawafdehi_Public_Accountability_API.yaml
  * Base URL: https://portal.jawafdehi.org/api

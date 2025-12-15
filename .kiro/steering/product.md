@@ -6,7 +6,7 @@ React-based public-facing web application for browsing and interacting with Nepa
 
 ## Core Features
 
-- **Browse Cases**: View allegations of corruption, misconduct, and broken promises
+- **Browse Cases**: View allegations of corruption and misconduct
 - **Entity Profiles**: Explore profiles of public officials and organizations
 - **Submit Allegations**: Allow users to submit new cases
 - **Bilingual Support**: Full English and Nepali language support

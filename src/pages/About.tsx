@@ -2,11 +2,68 @@ import { useTranslation } from "react-i18next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Users, Eye, Target, CheckCircle2 } from "lucide-react";
+import { Shield, Users, Eye, Target, CheckCircle2, Mail, Linkedin, Facebook, Github } from "lucide-react";
 import { Mermaid } from "@/components/Mermaid";
 
+type ContactType = "email" | "facebook" | "linkedin" | "github";
+
+interface Contact {
+  type: ContactType;
+  value: string;
+}
+
+interface TeamMember {
+  displayName: {
+    en: string;
+    ne: string;
+  };
+  thumb?: string;
+  description: string;
+  contacts: Contact[];
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    displayName: {
+      en: "Damodar Dahal",
+      ne: "दामोदर दाहाल",
+    },
+    thumb: "https://s3.jawafdehi.org/team/damodar.jpeg",
+    description: "Founder, NewNepal.org; Master's in International Relations, Harvard University Extension School; Software Engineer @ Amazon Web Services",
+    contacts: [
+      { type: "email", value: "damo94761@gmail.com" },
+      { type: "linkedin", value: "https://www.linkedin.com/in/damo-da/" },
+      { type: "github", value: "https://github.com/damo-da"}
+    ],
+  },
+  {
+    displayName: {
+      en: "Shishir Bashyal",
+      ne: "शिशिर बस्याल",
+    },
+    description: "CEO, Proma.ai; Volunteer, Let's Build Nepal",
+    thumb: "https://s3.jawafdehi.org/team/shishir.jpeg",
+    contacts: [
+      { type: "linkedin", value: "https://www.linkedin.com/in/sbashyal/" },
+    ],
+  },
+  // {
+  //   displayName: {
+  //     en: "Arjun Tamang",
+  //     ne: "अर्जुन तामाङ",
+  //   },
+  //   description: "Outreach & Community Coordinator",
+  //   contacts: [
+  //     { type: "email", value: "arjun.tamang@example.com" },
+  //     { type: "linkedin", value: "https://linkedin.com/in/arjuntamang" },
+  //     { type: "facebook", value: "https://facebook.com/arjuntamang" },
+  //   ],
+  // },
+];
+
 const About = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language as "en" | "ne";
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -49,6 +106,61 @@ const About = () => {
                   ) : part
                 ))}
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Team Section */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-foreground mb-10 text-center">{t("about.team.title")}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {teamMembers.map((member, index) => (
+                  <Card key={index}>
+                    <CardContent className="pt-6">
+                      <div className="text-center">
+                        <div className="mb-4">
+                          {member.thumb ? (
+                            <img
+                              src={member.thumb}
+                              alt={member.displayName[currentLang]}
+                              className="w-32 h-32 rounded-full mx-auto object-cover"
+                            />
+                          ) : (
+                            <div className="w-32 h-32 rounded-full bg-primary/10 mx-auto flex items-center justify-center">
+                              <Users className="h-16 w-16 text-primary" />
+                            </div>
+                          )}
+                        </div>
+                        <h3 className="font-semibold text-foreground mb-2 text-lg">
+                          {member.displayName[currentLang]}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          {member.description}
+                        </p>
+                        <div className="flex justify-center space-x-3">
+                          {member.contacts.map((contact, contactIndex) => (
+                            <a
+                              key={contactIndex}
+                              href={contact.type === "email" ? `mailto:${contact.value}` : contact.value}
+                              target={contact.type !== "email" ? "_blank" : undefined}
+                              rel={contact.type !== "email" ? "noopener noreferrer" : undefined}
+                              className="text-muted-foreground hover:text-primary transition-colors"
+                              aria-label={`${member.displayName[currentLang]} ${contact.type}`}
+                            >
+                              {contact.type === "email" && <Mail className="h-5 w-5" />}
+                              {contact.type === "linkedin" && <Linkedin className="h-5 w-5" />}
+                              {contact.type === "facebook" && <Facebook className="h-5 w-5" />}
+                              {contact.type === "github" && <Github className="h-5 w-5" />}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </section>
