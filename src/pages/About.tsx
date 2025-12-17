@@ -86,7 +86,7 @@ const teamMembers: TeamMember[] = [
 
 const About = () => {
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as "en" | "ne";
+  const currentLang = (i18n.language?.startsWith("ne") ? "ne" : "en") as "en" | "ne";
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
