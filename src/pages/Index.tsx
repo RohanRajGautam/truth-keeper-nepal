@@ -114,12 +114,6 @@ const Index = () => {
                 description={t("home.stats.underInvestigationDesc")}
               />
               <StatCard
-                title={t("home.stats.resolved")}
-                value={getStatValue(stats?.cases_closed)}
-                icon={CheckCircle2}
-                description={t("home.stats.resolvedDesc")}
-              />
-              <StatCard
                 title={t("home.stats.entitiesTracked")}
                 value={getStatValue(stats?.entities_tracked)}
                 icon={Users}
