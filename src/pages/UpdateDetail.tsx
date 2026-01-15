@@ -78,7 +78,7 @@ const UpdateDetail = () => {
                                 </h3>
                                 <div className="grid gap-4 md:grid-cols-2">
                                     {update.pdfs.map((pdf, index) => (
-                                        <div key={index} className="flex items-center justify-between p-4 border rounded-md bg-background hover:bg-accent/50 transition-colors flex-col sm:flex-row gap-2">
+                                        <div key={index} className="flex items-start justify-between p-4 border rounded-md bg-background hover:bg-accent/50 transition-colors flex-col sm:flex-row sm:items-center gap-2">
                                             <div className="flex items-center space-x-3 overflow-hidden">
                                                 <div className="bg-red-100 dark:bg-red-900/20 p-2 rounded">
                                                     <FileText className="h-6 w-6 text-red-600 dark:text-red-400" />

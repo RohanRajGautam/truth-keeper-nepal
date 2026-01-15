@@ -46,12 +46,9 @@ export const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden lg:flex items-center space-x-6">
           <NavLink to="/" end className={navLinkClass}>
             {t("nav.home")}
-          </NavLink>
-          <NavLink to="/updates" className={navLinkClass}>
-            {t("nav.updates")}
           </NavLink>
           <NavLink to="/cases" className={navLinkClass}>
             {t("nav.cases")}
@@ -62,13 +59,16 @@ export const Header = () => {
           <NavLink to="/information" className={navLinkClass}>
             {t("nav.information")}
           </NavLink>
+          <NavLink to="/updates" className={navLinkClass}>
+            {t("nav.updates")}
+          </NavLink>
           <NavLink to="/about" className={navLinkClass}>
             {t("nav.about")}
           </NavLink>
         </nav>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center space-x-2">
+        <div className="hidden lg:flex items-center space-x-2">
           <LanguageToggle />
           <Button variant="ghost" size="icon" asChild>
             <Link to="/cases">
@@ -85,7 +85,7 @@ export const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className="flex md:hidden items-center space-x-2">
+        <div className="flex lg:hidden items-center space-x-2">
           <LanguageToggle />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -107,13 +107,6 @@ export const Header = () => {
                   {t("nav.home")}
                 </NavLink>
                 <NavLink
-                  to="/updates"
-                  className={mobileNavLinkClass}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {t("nav.updates")}
-                </NavLink>
-                <NavLink
                   to="/cases"
                   className={mobileNavLinkClass}
                   onClick={() => setIsOpen(false)}
@@ -133,6 +126,13 @@ export const Header = () => {
                   onClick={() => setIsOpen(false)}
                 >
                   {t("nav.information")}
+                </NavLink>
+                <NavLink
+                  to="/updates"
+                  className={mobileNavLinkClass}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t("nav.updates")}
                 </NavLink>
                 <NavLink
                   to="/about"
