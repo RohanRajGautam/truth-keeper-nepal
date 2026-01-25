@@ -156,10 +156,12 @@ const CaseDetail = () => {
       <main className="flex-1 py-12">
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="flex justify-between mb-4">
-            <Button variant="outline" asChild className="mb-6">
+            <Button variant="outline" asChild className="mb-2">
               <Link to="/cases">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                {t("caseDetail.backToCases")}
+                <ArrowLeft className="h-4 w-4" />
+                <span className="mt-[5px]">
+                  {t("caseDetail.backToCases")}
+                </span>
               </Link>
             </Button>
 
@@ -419,11 +421,11 @@ const CaseDetail = () => {
               <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-muted-foreground">
                 <div className="flex items-center gap-1">
                   <Mail className="h-4 w-4" />
-                  <span>{t("caseDetail.emailLabel")}: inquiry@jawafdehi.org</span>
+                  <span className="mt-1">{t("caseDetail.emailLabel")}: inquiry@jawafdehi.org</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <MessageCircle className="h-4 w-4" />
-                  <span>{t("caseDetail.whatsappLabel")}: +977-9801123456</span>
+                  <span className="mt-1">{t("caseDetail.whatsappLabel")}: +977-9801123456</span>
                 </div>
               </div>
             </div>
@@ -436,7 +438,9 @@ const CaseDetail = () => {
                 className="flex items-center gap-2"
               >
                 <ExternalLink className="h-4 w-4" />
-                {t("caseDetail.editCase")}
+                <span className="mt-1.5">
+                  {t("caseDetail.editCase")}
+                </span>
               </a>
             </Button>
           </div>

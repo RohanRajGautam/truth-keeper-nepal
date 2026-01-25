@@ -145,7 +145,9 @@ export function ReportCaseDialog({ caseId, caseTitle }: ReportCaseDialogProps) {
             <DialogTrigger asChild>
                 <Button variant="outline" className="gap-2">
                     <AlertCircle className="h-4 w-4" />
-                    {t("caseDetail.reportInfo")}
+                    <span className="mt-1.5">
+                        {t("caseDetail.reportInfo")}
+                    </span>
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
